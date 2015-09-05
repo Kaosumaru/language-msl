@@ -45,6 +45,54 @@
     'match': '-?(?=[1-9]|0(?!\\d))\\d+(\\.\\d+)?([eE][+-]?\\d+)?\\%?'
     'name': 'constant.numeric.json'
 
+  'named_value':
+    'begin': '([a-zA-Z])([a-zA-Z0-9\\.]|\\(|\\))*\\('
+    'beginCaptures':
+      '0':
+        'name': 'punctuation.definition.dictionary.begin.json'
+    'comment': 'a JSON object'
+    'end': '\\)'
+    'endCaptures':
+      '0':
+        'name': 'punctuation.definition.dictionary.end.json'
+    'name': 'meta.structure.dictionary.json'
+    'patterns': [
+      {
+        'include': '#comments'
+      }
+      {
+        'comment': 'the JSON object key'
+        'include': '#string'
+      }
+      {
+        'comment': 'end of value is a)comma b) } c) new key (currently implemented sort of wrong, and doesnt work if its at start of line)'
+        'begin': ':'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.separator.dictionary.key-value.json'
+        'end': '(,)|(?=\\})|(?=[^:\\s]+(\\s)*:)'
+        'endCaptures':
+          '1':
+            'name': 'punctuation.separator.dictionary.pair.json'
+        'name': 'meta.structure.dictionary.value.json'
+        'patterns': [
+          {
+            'include': '#comments'
+          }
+          {
+            'comment': 'the JSON object value'
+            'include': '#value'
+          }
+
+        ]
+      }
+      {
+        'match': '[^\\s\\}]'
+        'name': 'invalid.illegal.expected-dictionary-separator.json'
+      }
+
+    ]
+
 
   'object':
     'begin': '\\{'
@@ -66,7 +114,7 @@
         'include': '#string'
       }
       {
-        'comment': 'end of value is a)comma b) } c) new key (currently implemented sort of wrong)'
+        'comment': 'end of value is a)comma b) } c) new key (currently implemented sort of wrong, and doesnt work if its at start of line)'
         'begin': ':'
         'beginCaptures':
           '0':
@@ -119,7 +167,7 @@
   'string-simple':
     'comment': 'the quoted_string or simple string'
     'name': 'string.quoted.double.json'
-    'match': '([a-zA-Z]|&)([a-zA-Z0-9]|\\(|\\))*'
+    'match': '([a-zA-Z]|&)([a-zA-Z0-9\\.]|\\(|\\))*'
 
 
   'string':
@@ -135,6 +183,9 @@
   'value':
     'comment': 'the \'value\' diagram at http://json.org'
     'patterns': [
+      {
+        'include': '#named_value'
+      }
       {
         'include': '#constant'
       }
