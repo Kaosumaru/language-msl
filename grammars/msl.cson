@@ -71,7 +71,7 @@
         'beginCaptures':
           '0':
             'name': 'punctuation.separator.dictionary.key-value.json'
-        'end': '(,)|(?=\\})|(?=\\s[^:\\s]+(\\s)*:)'
+        'end': '(,)|(?=\\})|(?=[^:\\s]+(\\s)*:)'
         'endCaptures':
           '1':
             'name': 'punctuation.separator.dictionary.pair.json'
