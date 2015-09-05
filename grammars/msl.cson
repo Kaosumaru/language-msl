@@ -1,20 +1,7 @@
 'fileTypes': [
-  'babelrc'
-  'bowerrc'
-  'eslintrc'
-  'geojson'
-  'jscsrc'
-  'jshintrc'
-  'jslintrc'
-  'json'
-  'jsonl'
-  'ldj'
-  'ldjson'
-  'schema'
-  'topojson'
-  'webapp'
+  'msl'
 ]
-'name': 'JSON'
+'name': 'MSL'
 'patterns': [
   {
     'include': '#comments'
@@ -105,7 +92,9 @@
         'name': 'invalid.illegal.expected-dictionary-separator.json'
       }
     ]
-  'string':
+
+
+  'string-quoted':
     'begin': '"'
     'beginCaptures':
       '0':
@@ -125,6 +114,23 @@
         'name': 'invalid.illegal.unrecognized-string-escape.json'
       }
     ]
+
+  'string-simple':
+    'comment': 'the quoted_string or simple string'
+    'name': 'string.quoted.double.json'
+    'match': '([a-zA-Z]|&)([a-zA-Z0-9]|\\(|\\))*'
+
+
+  'string':
+    'comment': 'the quoted_string or simple string'
+    'patterns': [
+      {
+        'include': '#string-simple'
+      }
+      {
+        'include': '#string-quoted'
+      }
+    ]
   'value':
     'comment': 'the \'value\' diagram at http://json.org'
     'patterns': [
@@ -135,13 +141,13 @@
         'include': '#number'
       }
       {
-        'include': '#string'
-      }
-      {
         'include': '#array'
       }
       {
         'include': '#object'
+      }
+      {
+        'include': '#string'
       }
     ]
   'comments':

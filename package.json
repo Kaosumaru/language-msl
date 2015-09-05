@@ -1,7 +1,7 @@
 {
-  "name": "language-json",
+  "name": "language-msl",
   "version": "0.16.0",
-  "description": "JSON language support in Atom",
+  "description": "MSL language support in Atom",
   "engines": {
     "atom": "*",
     "node": "*"
