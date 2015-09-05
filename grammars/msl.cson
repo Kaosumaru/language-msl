@@ -68,7 +68,7 @@
         'beginCaptures':
           '0':
             'name': 'punctuation.separator.dictionary.key-value.json'
-        'end': '(,)|(?=\\})'
+        'end': '(,)|(?=\\})|(?=\\w[^,\\:]*\\:)'
         'endCaptures':
           '1':
             'name': 'punctuation.separator.dictionary.pair.json'
@@ -81,16 +81,14 @@
             'comment': 'the JSON object value'
             'include': '#value'
           }
-          {
-            'match': '[^\\s,]'
-            'name': 'invalid.illegal.expected-dictionary-separator.json'
-          }
+
         ]
       }
       {
         'match': '[^\\s\\}]'
         'name': 'invalid.illegal.expected-dictionary-separator.json'
       }
+
     ]
 
 
