@@ -42,8 +42,10 @@
     'name': 'constant.language.json'
   'number':
     'comment': 'handles integer and decimal numbers'
-    'match': '-?(?=[1-9]|0(?!\\d))\\d+(\\.\\d+)?([eE][+-]?\\d+)?'
+    'match': '-?(?=[1-9]|0(?!\\d))\\d+(\\.\\d+)?([eE][+-]?\\d+)?\\%?'
     'name': 'constant.numeric.json'
+
+
   'object':
     'begin': '\\{'
     'beginCaptures':
@@ -64,11 +66,12 @@
         'include': '#string'
       }
       {
+        'comment': 'end of value is a)comma b) } c) new key (currently implemented sort of wrong)'
         'begin': ':'
         'beginCaptures':
           '0':
             'name': 'punctuation.separator.dictionary.key-value.json'
-        'end': '(,)|(?=\\})|(?=\\w[^,\\:]*\\:)'
+        'end': '(,)|(?=\\})|(?=\\s[^:\\s]+(\\s)*:)'
         'endCaptures':
           '1':
             'name': 'punctuation.separator.dictionary.pair.json'
