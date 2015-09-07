@@ -1,19 +1,19 @@
 {
   "name": "language-msl",
-  "version": "0.16.0",
+  "version": "0.1.0",
   "description": "MSL language support in Atom",
   "engines": {
     "atom": "*",
     "node": "*"
   },
-  "homepage": "http://atom.github.io/language-json",
+  "homepage": "https://github.com/Kaosumaru/MSL",
   "repository": {
     "type": "git",
-    "url": "https://github.com/atom/language-json.git"
+    "url": "https://github.com/Kaosumaru/MSL.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/atom/language-json/issues"
+    "url": "https://github.com/Kaosumaru/MSL/issues"
   },
   "devDependencies": {
     "coffeelint": "^1.10.1"
