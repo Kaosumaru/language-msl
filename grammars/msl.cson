@@ -167,7 +167,7 @@
   'string-simple':
     'comment': 'the quoted_string or simple string'
     'name': 'string.quoted.double.json'
-    'match': '([a-zA-Z])[a-zA-Z0-9\\.]*'
+    'match': '([a-zA-Z])[a-zA-Z0-9\\/\\.\\\\]*'
 
   'string-pointer':
     'comment': 'the quoted_string or simple string'
