@@ -46,7 +46,7 @@
     'name': 'constant.numeric.json'
 
   'named_value':
-    'begin': '([a-zA-Z])([a-zA-Z0-9\\.])*\\('
+    'begin': '([a-zA-Z])([a-zA-Z0-9\\.\\<\\>])*\\('
     'beginCaptures':
       '0':
         'name': 'punctuation.definition.dictionary.begin.json'
@@ -167,12 +167,12 @@
   'string-simple':
     'comment': 'the quoted_string or simple string'
     'name': 'string.quoted.double.json'
-    'match': '([a-zA-Z])[a-zA-Z0-9\\!\\/\\.\\_\\\\]*'
+    'match': '([a-zA-Z])[a-zA-Z0-9\\<\\>\\!\\/\\.\\_\\\\]*'
 
   'string-pointer':
     'comment': 'the quoted_string or simple string'
     'name': 'string.quoted.double.json'
-    'match': '&([a-zA-Z0-9\\.]|\\(|\\))*'
+    'match': '&([a-zA-Z0-9\\.]|\\(|\\)|\\<|\\>)*'
 
 
   'string':
